@@ -10,7 +10,12 @@ export default function Calculator(props) {
   function calculateMonthlyCostOfLiving(expenses) {
     let monthlyCostOfLiving = 0.0;
     for (let i = 0; i < expenses.length; i++) {
-      monthlyCostOfLiving += parseFloat(expenses[i]);
+      if (expenses[i] === null) {
+        expenses[i] = 0;
+        monthlyCostOfLiving += parseFloat(expenses[i]);
+      } else {
+        monthlyCostOfLiving += parseFloat(expenses[i]);
+      }
     }
     return monthlyCostOfLiving;
   }
